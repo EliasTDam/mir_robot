@@ -19,7 +19,6 @@ set(msg_files
   "msg/Device.msg"
   "msg/Devices.msg"
   "msg/Encoders.msg"
-  "msg/EncoderTestEntry.msg"
   "msg/Error.msg"
   "msg/Event.msg"
   "msg/Events.msg"
@@ -34,6 +33,7 @@ set(msg_files
   "msg/JoystickVel.msg"
   "msg/LocalMapStat.msg"
   "msg/MirExtra.msg"
+  # "msg/MirStatus.msg"
   "msg/MissionCtrlCommand.msg"
   "msg/MissionCtrlState.msg"
   "msg/PalletLifterStatus.msg"
@@ -43,7 +43,6 @@ set(msg_files
   "msg/PlanSegments.msg"
   "msg/Pose2D.msg"
   "msg/PowerBoardMotorStatus.msg"
-  "msg/PrecisionDockingStatus.msg"
   "msg/Proximity.msg"
   "msg/ResourcesState.msg"
   "msg/ResourceState.msg"
@@ -52,7 +51,6 @@ set(msg_files
   "msg/RobotStatus.msg"
   "msg/SafetyStatus.msg"
   "msg/Serial.msg"
-  "msg/SoundEvent.msg"
   "msg/StampedEncoders.msg"
   "msg/Trolley.msg"
   "msg/Twist2D.msg"
@@ -60,8 +58,8 @@ set(msg_files
   "msg/WebPath.msg"
   "msg/WorldMap.msg"
   "msg/WorldModel.msg"
+  "srv/ExecMission.srv"
 )
-
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
