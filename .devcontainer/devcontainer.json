@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+	"name": "ROS Dev",
+
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/src/,type=bind,consistency=cached",
+
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-iot.vscode-ros"
+			]
+		}
+	}
+}
