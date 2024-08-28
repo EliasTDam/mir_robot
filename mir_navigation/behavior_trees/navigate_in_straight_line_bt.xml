@@ -4,7 +4,7 @@
 
 <root main_tree_to_execute="MainTree">
   <BehaviorTree ID="MainTree">
-    <PipelineSequence name="NavigateWithReplanning">
+    <PipelineSequence name="NavigateWithoutReplanning">
       <GoalUpdatedController>
         <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
       </GoalUpdatedController>

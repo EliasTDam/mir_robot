@@ -46,12 +46,22 @@ def generate_launch_description():
 
     def find_map_file(context):
         map_arg = context.launch_configurations['map']
+        print(f"trying to find map file with with arg {map_arg}")
+        print(f"trying to find map at: {os.path.join(mir_nav_dir,'maps', map_arg)}")
         if os.path.isfile(os.path.join(mir_nav_dir, 'maps', map_arg)):
+            print(f"map found in mir nav dir with path: \n{os.path.join(mir_nav_dir,'maps', map_arg)}")
             return [SetLaunchConfiguration('map_file', os.path.join(mir_nav_dir, 'maps', map_arg))]
+
         elif os.path.isfile(map_arg):
+            print(f"using full map path")
             return [SetLaunchConfiguration('map_file', map_arg)]
-
-
+    
+    # declare_map_file_file_argument = DeclareLaunchArgument(
+    #     'map_file',
+    #     default_value=os.path.join(mir_nav_dir, 'maps', 'workspace1_map.yaml'),
+    #     description='Relative path to map in mir_navigation/maps or full path to map (yaml).',
+    # )
+    #
 
     declare_map_file_argument = DeclareLaunchArgument(
         'map',
@@ -135,6 +145,7 @@ def generate_launch_description():
     ld.add_action(declare_slam_params_file_cmd)
     ld.add_action(declare_nav_params_file_cmd)
     ld.add_action(declare_rviz_config_file_argument)
+    # ld.add_action(declare_map_file_file_argument)
     ld.add_action(OpaqueFunction(function=find_map_file))
     ld.add_action(launch_amcl)
     ld.add_action(launch_navigation)
